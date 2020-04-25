@@ -4,7 +4,7 @@ import { ArticlesListComponent } from './articles-list/articles-list.component';
 import { ArticleDetailsComponent } from './article-details/article-details.component';
 import { ArticlesRouting } from './articles-routing.module';
 import { ArticlesService } from './articles.service';
-import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -15,8 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     CommonModule,
-    HttpClientModule,
-    ArticlesRouting
+    ArticlesRouting,
+    SharedModule
   ],
   providers: [
     ArticlesService

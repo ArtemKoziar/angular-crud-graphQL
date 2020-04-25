@@ -1,3 +1,20 @@
-<div>
-  {{ article.name }} {{ article.id }}
+<div fxFlexFill fxLayoutAlign="center center">
+  <div fxFlex="300px" fxLayout="column" fxLayoutGap="20px">
+    <mat-form-field appearance="outline" fxFlexFill>
+      <input matInput type="text" [(ngModel)]="article.name">
+    </mat-form-field>
+    <div class="btns-container" fxLayout="row" fxLayoutAlign="space-between center" fxFlexFill>
+      <button mat-raised-button fxFlex="25" [routerLink]="'/articles'">
+        Back
+      </button>
+
+      <button mat-raised-button color="primary" fxFlex="25" (click)="saveChanges()">
+        Save
+      </button>
+
+      <button mat-raised-button color="warn" fxFlex="25" (click)="deleteArticle()">
+        Delete
+      </button>
+    </div>
+  </div>
 </div>

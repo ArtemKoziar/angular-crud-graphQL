@@ -1,6 +1,27 @@
-<div *ngFor="let article of articles$ | async">
-  <a [routerLink]="'article/' + article.id">
-    {{ article.name }} {{ article.id }}
-  </a>
+<div fxLayoutAlign="center">
+  <div class="users-container" fxFlex='500px' fxLayout="column" fxLayoutGap="20px">
+    <h1 class="title">Users List</h1>
+
+    <mat-form-field appearance="outline" fxFlexFill>
+      <input matInput type="text" placeholder="Type to create user" [(ngModel)]="newArticle" (keydown.enter)="createArticle()">
+    </mat-form-field>
+
+    <div
+        *ngFor="let article of articles"
+        fxLayoutAlign="space-between start">
+      <div class="user-name">
+        {{article.name }}
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="10px">
+        <button mat-icon-button color="primary" aria-label="edit button" (click)="editArticle(article)">
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <button mat-icon-button color="warn" aria-label="delete button" (click)="deleteArticle(article.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
-<router-outlet></router-outlet>

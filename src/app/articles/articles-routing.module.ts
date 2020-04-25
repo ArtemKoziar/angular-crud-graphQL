@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { ArticlesListComponent } from './articles-list/articles-list.component';
 import { ArticleDetailsComponent } from './article-details/article-details.component';
-import { ArticleResolver } from './articles.service';
 
 const routes: Routes = [
   {
@@ -13,12 +12,11 @@ const routes: Routes = [
   {
     path: 'articles',
     component: ArticlesListComponent,
-    children: [{
-      path: 'article/:id',
-      component: ArticleDetailsComponent,
-      resolve: { article: ArticleResolver }
-    }]
   },
+  {
+    path: 'article/:id',
+    component: ArticleDetailsComponent
+  }
   // {
   //   path: '**',
   //   component: NotFoundComponent
@@ -27,8 +25,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-  providers: [ArticleResolver]
+  exports: [RouterModule]
 })
 export class ArticlesRouting {
 }

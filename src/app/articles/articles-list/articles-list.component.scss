@@ -1,0 +1,19 @@
+:host {
+  height: 100%;
+}
+
+.users-container {
+  padding: 50px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.user-name {
+  max-width: 50%;
+  overflow-wrap: break-word;
+}
+
+.user-btn {
+  font-size: 16px;
+  padding: 7px 0;
+}
